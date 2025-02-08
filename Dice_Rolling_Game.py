@@ -1,4 +1,4 @@
-## 1.	Ask user to roll the dice
+## Ask user to roll the dice
 ## 2.	Take y/n as input
 ## 3.	If it is not y/n then print “Invalid Input!”
 ## 4.	If it is y then print a pair of random numbers. E.g.: (1,5)
@@ -6,6 +6,7 @@
 import random
 
 i= 1
+# Create a loop to keep asking the user to roll the dice
 while i!=0:
     inp = input("Roll the dice? (y/n): ")
     if inp=='y':
