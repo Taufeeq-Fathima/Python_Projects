@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eac95659-998b-4bad-bd89-c72820e1747e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dice_Rolling_Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dice_Rolling_Game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +37,7 @@
   "keyToString": {
     "Python.Dice_Rolling_Game.executor": "Run",
     "Python.Number_guessing_game.executor": "Run",
+    "Python.Rock_Paper_Scissors.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "local__branch"
   }
