@@ -1,21 +1,22 @@
 import random
 
-choices_dict = {'r': '🪨', 'p': '📃', 's': '✂'}
+game_choices = {'r': '🪨', 'p': '📃', 's': '✂'}
 
-while True:
-    user_choice = input("Rock, Paper or Scissors?(r/p/s): ").lower()
-    if user_choice not in choices_dict.keys():
-        print('Invalid Choice!')
-        continue
+def get_user_choice():
+    while True:
+        user_choice = input("Rock, Paper or Scissors?(r/p/s): ").lower()
+        if user_choice in game_choices.keys():
+            return user_choice
+        else:
+            print('Invalid Choice!')
 
-    computer_choice = random.choice(list(choices_dict.keys()))
+def display_choices(computer_choice, user_choice):
+    print('Computer Chose: ', game_choices[computer_choice])
+    print('You Chose: ', game_choices[user_choice])
 
-    print('Computer Chose: ', choices_dict[computer_choice])
-    print('You Chose: ', choices_dict[user_choice])
-
+def determine_winner(computer_choice, user_choice):
     if user_choice==computer_choice:
         print('Its a draw!')
-        continue
     elif ((user_choice == 'r' and computer_choice == 's') or
          (user_choice == 'p' and computer_choice == 'r') or
          (user_choice == 's' and computer_choice == 'p')):
@@ -25,8 +26,16 @@ while True:
             exit()
     else:
         print('You Lose!')
-        continue
 
+def play_game():
+    while True:
+        computer_choice = random.choice(list(game_choices.keys()))
+        user_choice = get_user_choice()
+
+        display_choices(computer_choice, user_choice)
+        determine_winner(computer_choice, user_choice)
+
+play_game()
 
 
 
