@@ -1,52 +1,32 @@
-## case 1:
-## case 2:
-## case 3:
-## case 4:
 import random
 
-i = 1
-d = { 'r':'🪨','p':'📃','s':'✂'}
+choices_dict = {'r': '🪨', 'p': '📃', 's': '✂'}
 
-def print_details():
-    print('Computer Chose: ', d[k])
-    print('You Chose: ', d[inp])
-
-while i != 0:
-    inp = input("Rock, Paper or Scissors?(r/p/s): ")
-    k = random.choice(list(d.keys()))
-    if inp not in d.keys():
+while True:
+    user_choice = input("Rock, Paper or Scissors?(r/p/s): ").lower()
+    if user_choice not in choices_dict.keys():
         print('Invalid Choice!')
         continue
-    elif inp == 'r' and k == 'p':
-        print_details()
-        print('You Lose!')
-        continue
-    elif inp == 'r' and k == 's':
-        print_details()
-        print('You Win!')
-    elif inp == 'p' and k == 'r':
-        print_details()
-        print('You Win!')
-    elif inp == 'p' and k == 's':
-        print_details()
-        print('You Lose!')
-        continue
-    elif inp == 's' and k == 'r':
-        print_details()
-        print('You Lose!')
-        continue
-    elif inp == 's' and k == 'p':
-        print_details()
-        print('You Win!')
-    else:
-        print_details()
+
+    computer_choice = random.choice(list(choices_dict.keys()))
+
+    print('Computer Chose: ', choices_dict[computer_choice])
+    print('You Chose: ', choices_dict[user_choice])
+
+    if user_choice==computer_choice:
         print('Its a draw!')
         continue
-    con = input('Continue?(y/n): ')
-    if con == 'y':
-        i = 1
-    elif con == 'n':
-        i = 0
+    elif ((user_choice == 'r' and computer_choice == 's') or
+         (user_choice == 'p' and computer_choice == 'r') or
+         (user_choice == 's' and computer_choice == 'p')):
+        print('You Win!')
+        should_continue = input('Continue?(y/n): ').lower()
+        if should_continue == 'n':
+            exit()
     else:
-        print('Invalid Choice!')
+        print('You Lose!')
+        continue
+
+
+
 
