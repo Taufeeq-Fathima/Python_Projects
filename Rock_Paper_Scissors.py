@@ -1,52 +1,41 @@
-## case 1:
-## case 2:
-## case 3:
-## case 4:
 import random
 
-i = 1
-d = { 'r':'🪨','p':'📃','s':'✂'}
+game_choices = {'r': '🪨', 'p': '📃', 's': '✂'}
 
-def print_details():
-    print('Computer Chose: ', d[k])
-    print('You Chose: ', d[inp])
+def get_user_choice():
+    while True:
+        user_choice = input("Rock, Paper or Scissors?(r/p/s): ").lower()
+        if user_choice in game_choices.keys():
+            return user_choice
+        else:
+            print('Invalid Choice!')
 
-while i != 0:
-    inp = input("Rock, Paper or Scissors?(r/p/s): ")
-    k = random.choice(list(d.keys()))
-    if inp not in d.keys():
-        print('Invalid Choice!')
-        continue
-    elif inp == 'r' and k == 'p':
-        print_details()
-        print('You Lose!')
-        continue
-    elif inp == 'r' and k == 's':
-        print_details()
-        print('You Win!')
-    elif inp == 'p' and k == 'r':
-        print_details()
-        print('You Win!')
-    elif inp == 'p' and k == 's':
-        print_details()
-        print('You Lose!')
-        continue
-    elif inp == 's' and k == 'r':
-        print_details()
-        print('You Lose!')
-        continue
-    elif inp == 's' and k == 'p':
-        print_details()
-        print('You Win!')
-    else:
-        print_details()
+def display_choices(computer_choice, user_choice):
+    print('Computer Chose: ', game_choices[computer_choice])
+    print('You Chose: ', game_choices[user_choice])
+
+def determine_winner(computer_choice, user_choice):
+    if user_choice==computer_choice:
         print('Its a draw!')
-        continue
-    con = input('Continue?(y/n): ')
-    if con == 'y':
-        i = 1
-    elif con == 'n':
-        i = 0
+    elif ((user_choice == 'r' and computer_choice == 's') or
+         (user_choice == 'p' and computer_choice == 'r') or
+         (user_choice == 's' and computer_choice == 'p')):
+        print('You Win!')
+        should_continue = input('Continue?(y/n): ').lower()
+        if should_continue == 'n':
+            exit()
     else:
-        print('Invalid Choice!')
+        print('You Lose!')
+
+def play_game():
+    while True:
+        computer_choice = random.choice(list(game_choices.keys()))
+        user_choice = get_user_choice()
+
+        display_choices(computer_choice, user_choice)
+        determine_winner(computer_choice, user_choice)
+
+play_game()
+
+
 
