@@ -1,6 +1,5 @@
 import numpy as np
 
-
 #initialize variables
 pattern = ('-'*3+'+')
 Players = ['X', 'O']
@@ -30,7 +29,6 @@ def get_player_input(player):
         except ValueError:
             print(f'Please enter numbers between (1,{board_size})')
             continue
-
 
 
 # Function to display the game with inputs entered by player
@@ -71,6 +69,7 @@ def determine_winner():
     elif not np.any(matrix == ' '):  # No more empty spaces, it's a draw
         display_winner(None)
 
+
 # Function to display if it is a win or a draw
 def display_winner(player):
     if player is None:
@@ -91,9 +90,11 @@ def continue_game():
         else:
             print("Invalid input! Please enter 'y' or 'n'.")
 
+
 # Function to start game
 def play_game():
     # Creating a 3*3 Matrix
+
     global matrix, board_size, user_input_count
     while True:
         try:
@@ -107,7 +108,6 @@ def play_game():
             continue
 
     matrix = np.full((board_size, board_size), " ")
-    user_input_count = (board_size**2//2)+(board_size**2%2)
 
     # Start the game loop, alternating between players
     current_player_index = 0
